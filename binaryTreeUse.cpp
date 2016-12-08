@@ -37,7 +37,7 @@ int main()
     bst.print_preOrder(outFile);
     bst.print_postOrder(outFile);
 
-    cout << "Number of Nodes: " << nodesInTree << endl;
+    cout << "\nNumber of Nodes: " << nodesInTree << endl;
     cout << "Number of Leafs: " << leafsInTree << endl;
     cout << "Smallest Number: " << smallest << endl;
     cout << "Largest Number: " << largest << endl;

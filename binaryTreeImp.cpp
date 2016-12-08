@@ -110,13 +110,13 @@ void bTree::inOrder(node* node, std::ostream &out)
 	{
 		if (node -> left)
         {
-            inOrder(node -> left, outFile);
+            inOrder(node -> left, out);
         }
 		std::cout << node -> num << ", ";
 		out << node -> num << ", ";
 		if (node -> right)
         {
-            inOrder(node -> right, outFile);
+            inOrder(node -> right, out);
         }
 	}
 	else
@@ -132,11 +132,11 @@ void bTree::preOrder(node* node, std::ostream &out)
         out << node -> num << ", ";
 		if (node -> left)
         {
-            preOrder(node -> left, outFile);
+            preOrder(node -> left, out);
         }
 		if (node -> right)
         {
-            preOrder(node -> right, outFile);
+            preOrder(node -> right, out);
         }
 	}
 	else
@@ -150,11 +150,11 @@ void bTree::postOrder(node* node, std::ostream &out)
 	{
 		if (node -> left)
         {
-            postOrder(node -> left, outFile);
+            postOrder(node -> left, out);
         }
 		if (node -> right)
         {
-            postOrder(node -> right, outFile);
+            postOrder(node -> right, out);
         }
 		std::cout << node -> num << ", ";
 		out << node -> num << ", ";
@@ -211,26 +211,26 @@ int bTree::howManyLeafs()
 void bTree::print_inOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    std::cout << "Inorder" << std::endl;
+    std::cout << "\n" << "Inorder" << std::endl;
     out << "Inorder" << std::endl;
-    inOrder(root, outFile);
+    inOrder(root, out);
     std::cout << std::endl;
 }
 
 void bTree::print_preOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    std::cout << "Preorder" << std::endl;
-    out << "Preorder" << std::endl;
-    preOrder(root, outFile);
+    std::cout << "\n" << "Preorder" << std::endl;
+    out << "\n \n" << "Preorder" << std::endl;
+    preOrder(root, out);
     std::cout << std::endl;
 }
 
 void bTree::print_postOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    std::cout << "Postorder" << std::endl;
-    out << "Postorder" << std::endl;
-    postOrder(root, outFile);
+    std::cout << "\n" << "Postorder" << std::endl;
+    out << "\n \n" << "Postorder" << std::endl;
+    postOrder(root, out);
     std::cout << std::endl;
 }
