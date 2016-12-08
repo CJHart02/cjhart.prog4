@@ -33,9 +33,9 @@ int main()
     leafsInTree = bst.howManyLeafs();
     smallest = bst.smallestNode();
     largest = bst.largestNode();
-    bst.print_inOrder();
-    bst.print_preOrder();
-    bst.print_postOrder();
+    bst.print_inOrder(outFile);
+    bst.print_preOrder(outFile);
+    bst.print_postOrder(outFile);
 
     cout << "Number of Nodes: " << nodesInTree << endl;
     cout << "Number of Leafs: " << leafsInTree << endl;

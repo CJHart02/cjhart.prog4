@@ -103,71 +103,64 @@ int bTree::soManyLeafs(node* node)
     }
 }
 
-void bTree::inOrder(node* node)
+void bTree::inOrder(node* node, std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     if (node != nullptr)
 	{
 		if (node -> left)
         {
-            inOrder(node -> left);
+            inOrder(node -> left, outFile);
         }
 		std::cout << node -> num << ", ";
-		outFile << node -> num << ", ";
+		out << node -> num << ", ";
 		if (node -> right)
         {
-            inOrder(node -> right);
+            inOrder(node -> right, outFile);
         }
 	}
 	else
         return;
-
-	outFile.close();
 }
 
-void bTree::preOrder(node* node)
+void bTree::preOrder(node* node, std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     if (node != nullptr)
 	{
 		std::cout << node -> num << ", ";
-        outFile << node -> num << ", ";
+        out << node -> num << ", ";
 		if (node -> left)
         {
-            preOrder(node -> left);
+            preOrder(node -> left, outFile);
         }
 		if (node -> right)
         {
-            preOrder(node -> right);
+            preOrder(node -> right, outFile);
         }
 	}
 	else
         return;
-    outFile.close();
 }
 
-void bTree::postOrder(node* node)
+void bTree::postOrder(node* node, std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     if(node != nullptr)
 	{
 		if (node -> left)
         {
-            postOrder(node -> left);
+            postOrder(node -> left, outFile);
         }
 		if (node -> right)
         {
-            postOrder(node -> right);
+            postOrder(node -> right, outFile);
         }
 		std::cout << node -> num << ", ";
-		outFile << node -> num << ", ";
+		out << node -> num << ", ";
 	}
 	else
         return;
-    outFile.close();
 }
 
 bool bTree::isFull(int count, int max)
@@ -215,35 +208,29 @@ int bTree::howManyLeafs()
     return leafs;
 }
 
-void bTree::print_inOrder()
+void bTree::print_inOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     std::cout << "Inorder" << std::endl;
-    outFile << "Inorder" << std::endl;
-    inOrder(root);
+    out << "Inorder" << std::endl;
+    inOrder(root, outFile);
     std::cout << std::endl;
-    outFile.close();
 }
 
-void bTree::print_preOrder()
+void bTree::print_preOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     std::cout << "Preorder" << std::endl;
-    outFile << "Preorder" << std::endl;
-    preOrder(root);
+    out << "Preorder" << std::endl;
+    preOrder(root, outFile);
     std::cout << std::endl;
-    outFile.close();
 }
 
-void bTree::print_postOrder()
+void bTree::print_postOrder(std::ostream &out)
 {
     std::ofstream outFile;
-    outFile.open("sorted_ints.txt");
     std::cout << "Postorder" << std::endl;
-    outFile << "Postorder" << std::endl;
-    postOrder(root);
+    out << "Postorder" << std::endl;
+    postOrder(root, outFile);
     std::cout << std::endl;
-    outFile.close();
 }
