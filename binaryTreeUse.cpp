@@ -9,8 +9,9 @@ int main()
 {
 	bTree bst;
 
-	int count, height, nodesInTree, leafsInTree, smallest, largest;
+	int count, nodesInTree, leafsInTree, smallest, largest;
 	int info = 0;
+	short height;
     count = 0;
     nodesInTree = 0;
 
@@ -37,10 +38,18 @@ int main()
     bst.print_preOrder(outFile);
     bst.print_postOrder(outFile);
 
-    cout << "\nNumber of Nodes: " << nodesInTree << endl;
+    height = bst.printHeight();
+
+    cout << "\n \n" << "Tree Height: " << height << endl;
+    outFile << "\n \n" << "Tree Height: " << height << endl;
+    cout << "Number of Nodes: " << nodesInTree << endl;
+    outFile << "Number of Nodes: " << nodesInTree << endl;
     cout << "Number of Leafs: " << leafsInTree << endl;
+    outFile << "Number of Leafs: " << leafsInTree << endl;
     cout << "Smallest Number: " << smallest << endl;
+    outFile << "Smallest Number: " << smallest << endl;
     cout << "Largest Number: " << largest << endl;
+    outFile << "Largest Number: " << largest << endl;
 
     inFile.close();
     outFile.close();

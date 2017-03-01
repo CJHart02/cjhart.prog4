@@ -50,7 +50,7 @@ void bTree::build(int info)
         {
             nodes++;
         }
-        std::cout << info << " has been inserted into the tree." << std::endl;
+        std::cout << info << " inserted" << std::endl;
     }
     else if ((info < current -> num) && (current -> left != nullptr))
     {
@@ -75,7 +75,7 @@ void bTree::build(int info)
         {
             nodes++;
         }
-        std::cout << info << " has been inserted into the tree." << std::endl;
+        std::cout << info << " inserted" << std::endl;
     }
     else if ((info > current -> num) && (current -> right != nullptr))
     {
@@ -102,6 +102,36 @@ int bTree::soManyLeafs(node* node)
         return soManyLeafs(node -> left) + soManyLeafs(node -> right);
     }
 }
+
+int bTree::treeHeight(node* node)
+{
+    if (node == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+
+        int l = treeHeight(node -> left);
+        int r = treeHeight(node -> right);
+
+        if (l > r)
+        {
+            return (l + 1);
+        }
+        else
+        {
+            return (r + 1);
+        }
+    }
+}
+
+int bTree::printHeight()
+{
+    int height = treeHeight(root);
+    return height;
+}
+
 
 void bTree::inOrder(node* node, std::ostream &out)
 {

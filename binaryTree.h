@@ -3,6 +3,7 @@ class bTree
 private:
     int nodes;
     int leafs;
+    int height;
 	struct node
 	{
         int num;
@@ -16,10 +17,11 @@ public:
 	bTree();
 	void build(int info);
 	int soManyLeafs(node* node);
+	int treeHeight(node* node);
+	int printHeight();
 	void inOrder(node* node, std::ostream &out);
 	void preOrder(node* node, std::ostream &out);
 	void postOrder(node* node, std::ostream &out);
-	void search(int info);
     bool isFull(int count, int max);
     int smallestNode();
     int largestNode();
